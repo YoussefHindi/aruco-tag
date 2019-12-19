@@ -25,9 +25,10 @@ class ArUco_Relay:
     def Callback(self, data):
         ArUco_ID = data.child_frame_id
         #If ArUco_ID 1 is seen,
-        #if ArUco_ID == "ArUco_ID 1":
-            #Do something
-	print(ArUco_ID)
+        if ArUco_ID == "marker_id7":
+            print('7')
+	else: 
+	    print(ArUco_ID)
             #code goes here
 
         self.ROS_msg.data = ArUco_ID
