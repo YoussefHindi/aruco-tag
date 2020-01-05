@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+#!/bin/bash
+import os
+import time
+
+import speech_recognition as sr
+sr.__version__
+
+r = sr.Recognizer()
+#r.recognize_google()
+
+os.popen('arecord --format=S32_LE --duration=5 --rate=16000 --file-type=wav out.wav')
+
+harvard = sr.AudioFile('out.wav')
+with harvard as source:
+   audio = r.record(source)
+type(audio)
+
+
+
+print(r.recognize_google(audio))
+
